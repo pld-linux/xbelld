@@ -47,7 +47,8 @@ sygnału równocześnie ze zdefiniowaną akcją).
 %setup -q
 
 %build
-%{__make}
+%{__make} \
+	CFLAGS="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
