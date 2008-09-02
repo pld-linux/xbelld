@@ -48,7 +48,7 @@ sygnału równocześnie ze zdefiniowaną akcją).
 
 %build
 %{__make} \
-	CFLAGS="%{rpmcflags}"
+	CFLAGS="%{rpmcflags} -Wall -DVERSION=\"%{version}\" -std=gnu99 -DHAVE_ALSA"
 
 %install
 rm -rf $RPM_BUILD_ROOT
