@@ -2,12 +2,12 @@
 Summary:	X bell replacement
 Summary(pl.UTF-8):	Zastępstwo dźwięku systemowego pod X
 Name:		xbelld
-Version:	0.3.3
+Version:	0.3.4
 Release:	1
 License:	GPL v3
 Group:		X11/Applications
 Source0:	http://xbelld.googlecode.com/files/%{name}-%{version}.tbz2
-# Source0-md5:	d6c9b96ac5ccd4a3072e4c9e7add6547
+# Source0-md5:	97bdba8c9c306af51e1abf228df3d9b9
 URL:		http://code.google.com/p/xbelld/
 BuildRequires:	alsa-lib-devel
 BuildRequires:	xorg-lib-libX11-devel
@@ -48,7 +48,8 @@ sygnału równocześnie ze zdefiniowaną akcją).
 
 %build
 %{__make} \
-	CFLAGS="%{rpmcflags} -Wall -DVERSION=\"%{version}\" -std=gnu99 -DHAVE_ALSA"
+	CFLAGS="%{rpmcflags} -Wall -DVERSION="\\\"%{version}\\\"" -DHAVE_ALSA" \
+	LDFLAGS="%{rpmldflags} -lm"
 
 %install
 rm -rf $RPM_BUILD_ROOT
