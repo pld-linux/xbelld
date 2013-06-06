@@ -1,11 +1,11 @@
-#
 Summary:	X bell replacement
-Summary(pl.UTF-8):	Zastępstwo dźwięku systemowego pod X
+Summary(pl.UTF-8):	Zamiennik dzwonka systemowego pod X
 Name:		xbelld
 Version:	0.3.4
 Release:	1
 License:	GPL v3
 Group:		X11/Applications
+#Source0-Download: https://code.google.com/p/xbelld/downloads/list
 Source0:	http://xbelld.googlecode.com/files/%{name}-%{version}.tbz2
 # Source0-md5:	97bdba8c9c306af51e1abf228df3d9b9
 URL:		http://code.google.com/p/xbelld/
@@ -64,5 +64,5 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc ChangeLog README
-%attr(755,root,root) %{_bindir}/*
-%{_mandir}/man1/*
+%attr(755,root,root) %{_bindir}/xbelld
+%{_mandir}/man1/xbelld.1*
