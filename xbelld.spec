@@ -8,8 +8,10 @@ Group:		X11/Applications
 #Source0-Download: https://code.google.com/p/xbelld/downloads/list
 Source0:	http://xbelld.googlecode.com/files/%{name}-%{version}.tbz2
 # Source0-md5:	97bdba8c9c306af51e1abf228df3d9b9
+Patch0:		%{name}-link.patch
 URL:		http://code.google.com/p/xbelld/
 BuildRequires:	alsa-lib-devel
+BuildRequires:	pkgconfig
 BuildRequires:	xorg-lib-libX11-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -45,11 +47,16 @@ sygnału równocześnie ze zdefiniowaną akcją).
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
+CFLAGS="%{rpmcflags}" \
+CPPFLAGS="%{rpmcppflags}" \
+LDFLAGS="%{rpmldflags}" \
 %{__make} \
-	CFLAGS="%{rpmcflags} -Wall -DVERSION="\\\"%{version}\\\"" -DHAVE_ALSA" \
-	LDFLAGS="%{rpmldflags} -lm"
+	CC="%{__cc}" \
+	LOADLIBES="-lm" \
+	%{!?debug:NO_DEBUG=1}
 
 %install
 rm -rf $RPM_BUILD_ROOT

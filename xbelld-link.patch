@@ -1,0 +1,11 @@
+--- xbelld-0.3.4/Makefile.orig	2013-06-01 05:50:37.000000000 +0200
++++ xbelld-0.3.4/Makefile	2013-06-06 09:38:06.803649982 +0200
+@@ -34,7 +34,7 @@
+ 	$(CC) -c $(CFLAGS) $(CPPFLAGS) $< -o $@
+ 
+ xbelld: $(objects) features.mk
+-	$(CC) $(LDFLAGS) $(LOADLIBES) $(LDLIBS) $(objects) -o xbelld
++	$(CC) $(LDFLAGS) $(objects) $(LOADLIBES) $(LDLIBS) -o xbelld
+ 
+ .PHONY: clean
+ clean:
