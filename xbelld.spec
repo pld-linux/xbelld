@@ -2,7 +2,7 @@ Summary:	X bell replacement
 Summary(pl.UTF-8):	Zamiennik dzwonka systemowego pod X
 Name:		xbelld
 Version:	0.3.4
-Release:	2
+Release:	3
 License:	GPL v3
 Group:		X11/Applications
 #Source0-Download: https://code.google.com/p/xbelld/downloads/list
